@@ -1,0 +1,41 @@
+
+.phone-form {
+    
+    padding: 1rem;
+    
+}
+
+.input-box {
+    display: flex;
+    width: 100%;
+    padding-right:1rem;
+}
+
+.input-box div {
+    margin-left: 5px;
+    min-width: 80px;
+    max-width: 10%;
+    flex: 1;
+    font-size: 1rem;
+    font-weight: 600;
+    text-align: center;
+}
+
+.input-box input {
+    height: 2rem;
+    flex: 1;
+    background-color: #dbdbdb;
+    outline: none;
+    border: none;
+    border-bottom: 1px solid #224466;
+    
+    
+}
+
+.phone-form .btnSave {
+    width: 10%;
+    background-color: #dbdbdb;
+    color: #427dfc;
+    font-weight: 600;
+    text-align: center;
+}

@@ -1,0 +1,35 @@
+
+
+.template {
+    background-color: #63afdba8;
+    border-radius: 20px;
+    margin: 0 auto; /* 페이지 중앙 정렬 */
+    width:100%;
+}
+
+.header {
+    padding: 2rem;
+    background-color: #dbdbdb;
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: 400;
+    justify-content: space-between;
+    display: flex;
+    
+}
+
+
+.input-form {
+    background-color: #dbdbdb;
+}
+
+.search-form {
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    background-color: #dbdbdb;
+}
+
+.list {
+    background-color: #ffffff;
+
+}

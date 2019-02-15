@@ -1,0 +1,53 @@
+
+.phone {
+    display: flex;
+    justify-content: space-between;
+    
+    font-weight: 600;
+}
+
+.checked {
+    background-color: #dbdbdb;
+  }
+
+  .phone + .phone {
+    border-top: 1px solid #e2e2e2;
+  }
+
+.phone div {
+    
+}
+
+.phone .desc{
+    width: 5%;
+}
+
+.phone .content{
+    width: 40%;
+    font-weight: 400;
+    color: #747474;
+    padding: 1rem;
+    
+    	
+
+}
+
+
+.phone .btnRemove{
+    width: 10%;
+    background-color: #ff0d0d;
+    color: #ffffff;
+    text-align: center;
+    
+    display: flex;
+    
+    
+}
+
+.phone .btnRemove label {
+    
+    height: 100%;
+    width: 100%;
+    justify-content: center;
+    vertical-align: middle;
+}
