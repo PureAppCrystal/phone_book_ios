@@ -8,15 +8,15 @@ class PhoneList extends Component {
         const { phones, onRemove, onToggle } = this.props;
 
         const phoneList = phones.map(
-            ( {id, name, number, checked}) => (
+            phones => (
                 <Phone 
-                    key = {id}
-                    id = {id}
-                    name = {name}
-                    number = {number}
-                    checked = {checked}
-                    onRemove = {onRemove}
-                    onToggle = {onToggle}
+                    key = {phones.get('id')}
+                    id = {phones.get('id')}
+                    name = {phones.get('name')}
+                    number = {phones.get('number')}
+                    checked = {phones.get('checked')}
+                    onRemove = {() => onRemove(phones.get('id'))}
+                    onToggle = {() => onToggle(phones.get('id'))}
                 />
             )
         )

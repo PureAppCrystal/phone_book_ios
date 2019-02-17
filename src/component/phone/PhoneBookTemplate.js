@@ -4,11 +4,11 @@ import './PhoneBookTemplate.css'
 
 
 const PhoneBookTemplate = ({form, searchForm, children, history}) => {
-    const goBack = history.goBack;
+    // const goBack = history.goBack;
     return (
         <div className="template">
             <div className="header">
-                <button onClick={goBack}>뒤로</button>
+                {/* <button onClick={goBack}>뒤로</button> */}
                 <label>연락처</label>
                 <Link to="/phonebook/add">추가</Link>
             </div>
