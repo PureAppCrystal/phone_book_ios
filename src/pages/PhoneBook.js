@@ -12,8 +12,12 @@ import PhoneListContainers from '../containers/PhoneListContainers';
 
 class PhoneBook extends Component {
     render() {
+      const { location, history } = this.props;
+      const query = queryString.parse(location.search);
       return ( 
-        <PhoneBookTemplate>
+        <PhoneBookTemplate
+          history = {history}
+        >
           <PhoneInputContainer/>
           <PhoneListContainers/>
         </PhoneBookTemplate>

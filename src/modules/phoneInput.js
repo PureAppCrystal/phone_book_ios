@@ -10,15 +10,17 @@ export const setInput = createAction(SET_INPUT);
 // 초기 상태 정의
 const initialState = Map({
     name: '',
-    number: ''
+    number: '',
+    target: {}
 })
 
 // 리듀서 정의 
 export default handleActions({
     [SET_INPUT] : (state, action) => {
         console.log("====== Action[phoneInput/SET_INPUT] ======")
-        //console.log("action : ", action)
+        console.log("action : ", action)
         console.log("action.payload : ", action.payload )
+        console.log("before state ori : ", state)
         console.log("before state : ", state._root.entries)
         //const { name, number } = action.payload;
         //console.log(" name : ", name, ", number : ", number)
@@ -37,18 +39,58 @@ export default handleActions({
         // console.log('temp : ', temp)  
         // return temp;
 
-        
-        let newState = null;
-        if (action.payload.name !== undefined ) {
-            newState = state.set('name', action.payload.name)
-        } 
-        if ( action.payload.number !== undefined) {
-            newState = state.set('number', action.payload.number)
-        }
-        // 둘다 빈값일때..
-        if ( action.payload.number !== undefined && action.payload.number !== undefined) {
-            newState = state.set('name', action.payload.name).set('number', action.payload.number)
-        }
+
+        let newState = initialState;
+
+        // for ( var key in  action.payload ) {
+        //     console.log("key : ", key)
+        //     console.log("action.payload[key] : ", action.payload[key])
+        //     console.log("newState [f] : ", newState);
+            
+        // }
+
+        //newState = newState.set(key,  action.payload[key]);
+
+        //console.log("ddd : ", Object.keys(action.payload))
+
+        // let jsonKey = Object.keys(action.payload);
+        // let keyLength = jsonKey.length();
+
+        // newState.set(key[0], action.payload[key[0]])
+                        //    .set()
+        //state.set(key, action.payload[key]);
+
+        const temp = action.payload
+        console.log("=======================================")
+        console.log("temp : ", temp)
+        console.log("temp.keys : ", temp.keys)
+        console.log("Object.keys(temp) : ", Object.keys(temp))
+        console.log("Object.keys(temp)[0] : ", Object.keys(temp)[0])
+        console.log("action.payload[Object.keys(temp)] : ", action.payload[Object.keys(temp)])
+        console.log("=======================================")
+
+        // 지금 keys 로 받아오는것은 배열이기때문에 비구조할당이 되지 않는다.
+        newState = state.set(temp.keys, action.payload[Object.keys(temp)])
+        console.log("newState : ", newState);
+
+
+
+
+
+        // newState = state.set(jsonKey, action.payload[jsonKey]);
+        // newState = state;
+
+
+        // if (action.payload.name !== undefined ) {
+        // } 
+        // if ( action.payload.number !== undefined) {
+        //     newState = state.set('number', action.payload.number)
+        // }
+        // // 둘다 빈값일때..
+        // if ( action.payload.name !== undefined && action.payload.number !== undefined) {
+        //     console.log("?????")
+        //     newState = state.set('name', action.payload.name).set('number', action.payload.number)
+        // }
 
         console.log("after state : ", newState._root.entries);
         return newState;

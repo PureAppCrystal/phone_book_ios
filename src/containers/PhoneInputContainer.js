@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PhoneForm from '../component/phone/PhoneForm';
-
+import PhoneSearch from '../component/phone/PhoneSearch';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
@@ -30,6 +30,14 @@ class PhoneInputContainer extends Component {
         // 2개 시도
         const { InputActions } = this.props;
         InputActions.setInput({[e.target.name]: e.target.value}); // input 이름과 value  둘다 넘겨주었다.
+        
+        const target = e.target;
+        const ee = e;
+
+        console.log({'e':e, 'target':e.target});
+        
+        // InputActions.setInput(target); // input 이름과 value  둘다 넘겨주었다.
+        
     }
 
     handlerCreate = () => {
@@ -60,6 +68,7 @@ class PhoneInputContainer extends Component {
 
 
         return (
+            <div>
             <PhoneForm
                 onChange={handleChange}
                 onCreate={handlerCreate}
@@ -67,6 +76,8 @@ class PhoneInputContainer extends Component {
                 name={name}
                 number={number}
             />
+            <PhoneSearch/>
+            </div>
         )
     }
 }
