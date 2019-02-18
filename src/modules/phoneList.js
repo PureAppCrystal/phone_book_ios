@@ -30,28 +30,48 @@ const initialState = List([
     })
 ])
 
+
+const beforeLog = (actionType, state, action) => {
+    console.log("====== Action[phoneInput/"+actionType+"] ======")
+    console.log("action.payload : ", action.payload )
+    console.log("before state : ", state)
+}
+
+const afterLog = (state) => {
+    console.log("after state : ", state)
+    return state;
+}
+
 export default handleActions({
     [INSERT]: (state, action) => {
+        beforeLog(INSERT, state, action);
         const { id, name, number, checked } = action.payload;
-
-        return state.push(Map({
+        const tempState = state.push(Map({
             id,
             name,
             number,
             checked
         }))
+
+        return afterLog(tempState);
     },
     [TOGGLE]: (state, action) => {
+        beforeLog(INSERT, state, action);
         const { payload: id } = action;
 
         const index = state.findIndex(phones => phones.get('id') === id );
-        return state.updateIn([index, 'checked'], checked => !checked)
+        const tempState = state.updateIn([index, 'checked'], checked => !checked)
+        
+        return afterLog(tempState);
     },
     [REMOVE]: (state, action) => {
+        beforeLog(INSERT, state, action);
         const { payload: id } = action;
 
         const index = state.findIndex(phones => phones.get('id') === id );
-        return state.delete(index);
+        const tempState = state.delete(index);
+        
+        return afterLog(tempState);
     }
 
 }, initialState)

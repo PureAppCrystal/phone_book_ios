@@ -8,26 +8,28 @@ import * as inputActions from '../modules/phoneInput';
 import * as listActions from '../modules/phoneList';
 
 class PhoneInputContainer extends Component { 
-    id = 1;
+    id = 2;
     getId = () => {
         return ++this.id;
     }
 
     handleChange = (e) => {
-        console.log("====== handleChange ======")
+        console.log("====== handleChange[PhoneInputContainer] ======")
         //this.setState({ [e.target.name]: e.target.value });
         
-        console.log(" e : ", e)
-        console.log(" e.target : " , e.target)
+        //console.log(" e : ", e)
+        //console.log(" e.target : " , e.target)
         console.log(" e.target.name : " , e.target.name)
         console.log(" e.target.value : " , e.target.value)
 
-        //const { name, number } = e.target;
-        const { name, number } = { name: "aaa", number: 'bbb'}
-        const { InputActions } = this.props;
+        // param 1 개 예제
+        // const { value } = e.target;
+        // const { InputActions } = this.props;
+        // InputActions.setInput(value);
 
-        // this.setState({ [e.target.name]: e.target.value });
-        InputActions.setInput({name, number});
+        // 2개 시도
+        const { InputActions } = this.props;
+        InputActions.setInput({[e.target.name]: e.target.value}); // input 이름과 value  둘다 넘겨주었다.
     }
 
     handlerCreate = () => {
