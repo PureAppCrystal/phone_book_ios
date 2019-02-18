@@ -61,6 +61,13 @@ export default handleActions({
         //state.set(key, action.payload[key]);
 
         const temp = action.payload
+        
+        //console.log(" " , )
+
+        const {name, number } = action.payload
+        console.log('temp : ', temp )
+        console.log("name : ", name);
+        console.log('number : ', number)
         console.log("=======================================")
         console.log("temp : ", temp)
         console.log("temp.keys : ", temp.keys)
@@ -70,7 +77,13 @@ export default handleActions({
         console.log("=======================================")
 
         // 지금 keys 로 받아오는것은 배열이기때문에 비구조할당이 되지 않는다.
-        newState = state.set(temp.keys, action.payload[Object.keys(temp)])
+        //newState = state.set(temp.keys, action.payload[Object.keys(temp)])
+
+        
+
+        // 성공
+        // newState = state.set(action.payload.name,action.payload.value);
+        newState = state.merge(temp)
         console.log("newState : ", newState);
 
 

@@ -31,12 +31,14 @@ class PhoneInputContainer extends Component {
         const { InputActions } = this.props;
         InputActions.setInput({[e.target.name]: e.target.value}); // input 이름과 value  둘다 넘겨주었다.
         
-        const target = e.target;
-        const ee = e;
+        const { name, value } = e.target;
+        console.log("name : ", name)
+        console.log("value : ", value)
+        // 성공
+        //InputActions.setInput({name, value}); // input 이름과 value  둘다 넘겨주었다.
 
-        console.log({'e':e, 'target':e.target});
-        
-        // InputActions.setInput(target); // input 이름과 value  둘다 넘겨주었다.
+
+         // InputActions.setInput(target); // input 이름과 value  둘다 넘겨주었다.
         
     }
 
@@ -50,6 +52,9 @@ class PhoneInputContainer extends Component {
         }
         ListActions.insert(phones);
         InputActions.setInput({name: '', number: ''});
+        // 성공
+        //InputActions.setInput({name: 'name', value: ''});
+        //InputActions.setInput({name: 'number', value: ''});
         
     }
 
